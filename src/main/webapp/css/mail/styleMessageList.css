@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+.even {
+    color: #fff;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    opacity: 0.65;
+    color: #000;
+}
+
+.container-fluid, #sidebar-wrapper{
+    background-color: transparent;
+}
+
+label, .dataTables_Info {
+    color: #FFFFFF;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+thead, tfoot {
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    font-size: 1.1em;
+}
+
+.pageContent {
+    background: url(../../img/background/bg-img.jpg) no-repeat;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1px;
+    font-size: 12pt;
+}
+
+.pageContent:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.dataTables_wrapper {
+    margin-top: 40px;
+    margin-right: 20%;
+    margin-left: 20%;
+    line-height: 2;
+}
+
+@media(max-width: 920px) {
+    .dataTables_wrapper {
+        margin: 10px;
+    }
+
+    .pageContent {
+        background-size: cover;
+    }
+}

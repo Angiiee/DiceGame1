@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Pavanam');
+.pageContent {
+    font-family: 'Pavanam', sans-serif;
+    letter-spacing: 1px;
+    color: #DCDCDC;
+}
+.profileWrap{
+    width: 90%;
+    margin-left: 5%;
+    max-width: 525px;
+    min-height: 690px;
+    position: relative;
+    background: inherit;
+}
+
+.profile{
+    width:100%;
+    padding:90px 70px 50px 70px;
+}
+
+.profile .profile-data-htm,
+.profile .profile-edit-htm{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    transform:rotateY(180deg);
+    backface-visibility:hidden;
+    transition:all .8s linear;
+}
+
+.profile .profile-data,
+.profile .profile-edit {
+    display:none;
+}
+
+.profile .tab,
+.profile-data-form .group .label{
+    text-transform:uppercase;
+    background: transparent;
+    line-height: 2;
+}
+
+.profile .tab{
+    font-size: 18px;
+    margin: 0 15px 10px 0;
+    display: none;
+    border-bottom: 2px solid transparent;
+    color: #000;
+}
+.profile .profile-data:checked + .tab,
+.profile .profile-edit:checked + .tab {
+    color: #fff;
+    display: inline;
+}
+.profile-data-form{
+    min-height:345px;
+    position:relative;
+}
+
+.profile-data-form .group{
+    margin-bottom: 10px;
+}
+
+.profile-data-form .group .input{
+    width:96%;
+    color: #fff;
+}
+.profile-data-form .group .input{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #FF0000;
+    margin-bottom: 10px;
+}
+
+.profile-data-form .group .label{
+    color: #F5F5F5;
+    font-size: 1em;
+}
+
+.profile-data-form .group .input:focus {
+    background-color: #FFF5EE;
+    color: #000;
+}
+
+.profile .profile-data:checked + .tab + .profile-edit + .tab + .profile-data-form .profile-data-htm{
+    transform:rotate(0deg);
+}
+.profile .profile-edit:checked + .tab + .profile-data-form .profile-edit-htm{
+    transform:rotate(0deg);
+}
+
+.name, .password {
+    display: inline-flex;
+    width: 98%;
+}
+
+input {
+    outline: none;
+}

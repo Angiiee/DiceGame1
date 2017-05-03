@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+@font-face {
+    font-family: HighTide;
+    src: url(../font/HighTide.otf);
+}
+
+/*.container-fluid {*/
+    /*background: #000000;*/
+/*}*/
+
+.navbar-brand {
+    font-family: HighTide;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+#showProfileForm, #showLogoutForm, #showCreditCardAccount {
+    display: none;
+}
+
+.button-localeEN, .button-localeRU {
+    outline: none;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.button-localeEN {
+    background: url(../img/locale/en.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.button-localeRU {
+    background: url(../img/locale/rus.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.flag {
+    margin: 10px;
+}
+
+.localeLabel {
+    display:none;
+}
+
+.menuItem {
+    font-family: 'Raleway', sans-serif;
+    display: block;
+    padding: 4px 10px;
+    color: #ffffff;
+    font-size: .9em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.menuItem:hover {
+    font-size: 1.1em;
+}

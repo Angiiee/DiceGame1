@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Pavanam');
+
+.formWrap {
+    margin-top: 10%;
+}
+#page-content-wrapper {
+    font-family: 'Pavanam', sans-serif;
+    letter-spacing: 1px;
+    color: #DCDCDC;
+}
+
+#inlineFormCustomSelect {
+    color: #000;
+}

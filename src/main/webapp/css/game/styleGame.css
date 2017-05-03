@@ -1,0 +1,6 @@
+.hideBlock{
+    display: none;
+}
+.active{
+    display: block;
+}

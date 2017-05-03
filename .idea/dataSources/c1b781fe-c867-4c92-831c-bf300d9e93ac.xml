@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="DiceDB@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="dicedb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="firstdb"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sakila"/>
+    <schema id="8" parent="1" name="world"/>
+    <table id="9" parent="2" name="game"/>
+    <table id="10" parent="2" name="game_m2m_user"/>
+    <table id="11" parent="2" name="message"/>
+    <table id="12" parent="2" name="money"/>
+    <table id="13" parent="2" name="tech_support"/>
+    <table id="14" parent="2" name="user"/>
+    <table id="15" parent="2" name="user_info"/>
+    <column id="16" parent="9" name="gameId">
+      <Position>1</Position>
+      <DataType>bigint(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="9" name="date">
+      <Position>2</Position>
+      <Comment>дата игры(потом для статистики)</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="18" parent="9" name="maxScore">
+      <Position>3</Position>
+      <Comment>Набранные очки победителя</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="19" parent="9" name="bank">
+      <Position>4</Position>
+      <DataType>decimal(10,2) unsigned|0</DataType>
+    </column>
+    <column id="20" parent="9" name="complete">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <key id="21" parent="9" name="PRIMARY">
+      <ColNames>gameId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="10" name="gameId">
+      <Position>1</Position>
+      <DataType>bigint(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="10" name="userId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="10" name="rate">
+      <Position>3</Position>
+      <Comment>тип для денежных данных</Comment>
+      <DataType>decimal(7,2)|0</DataType>
+    </column>
+    <column id="25" parent="10" name="userScore">
+      <Position>4</Position>
+      <DataType>int(4) unsigned|0</DataType>
+    </column>
+    <column id="26" parent="10" name="isWinner">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <index id="27" parent="10" name="fk_game_m2m_user_user1_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="28" parent="10" name="PRIMARY">
+      <ColNames>gameId
+userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="10" name="fk_game_m2m_user_game1">
+      <ColNames>gameId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>game</RefTableName>
+      <RefColNames>gameId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="30" parent="10" name="fk_game_m2m_user_user1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="31" parent="11" name="messageId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="11" name="senderId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="11" name="recipientId">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="11" name="theme">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="35" parent="11" name="message">
+      <Position>5</Position>
+      <Comment>тип для больших возможностей
+например: регистрочувствительность</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <index id="36" parent="11" name="fk_message_user1_idx">
+      <ColNames>senderId</ColNames>
+    </index>
+    <index id="37" parent="11" name="fk_message_user2_idx">
+      <ColNames>recipientId</ColNames>
+    </index>
+    <key id="38" parent="11" name="PRIMARY">
+      <ColNames>messageId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="39" parent="11" name="fk_message_user1">
+      <ColNames>senderId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="40" parent="11" name="fk_message_user2">
+      <ColNames>recipientId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="41" parent="12" name="moneyId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="12" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="12" name="USD">
+      <Position>3</Position>
+      <DataType>decimal(7,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="12" name="EUR">
+      <Position>4</Position>
+      <DataType>decimal(7,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="BYN">
+      <Position>5</Position>
+      <DataType>decimal(7,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="standartRate">
+      <Position>6</Position>
+      <DataType>decimal(7,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="47" parent="12" name="PRIMARY">
+      <ColNames>moneyId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="48" parent="13" name="techSupportId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="13" name="userId">
+      <Position>2</Position>
+      <Comment>id того, кто пишет</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="13" name="theme">
+      <Position>3</Position>
+      <Comment>тема вопроса</Comment>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="13" name="text">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="52" parent="13" name="state">
+      <Position>5</Position>
+      <Comment>обработан ли вопрос
+</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <index id="53" parent="13" name="fk_complaint_user1_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="54" parent="13" name="PRIMARY">
+      <ColNames>techSupportId
+userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="13" name="fk_complaint_user1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="56" parent="14" name="userId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="14" name="login">
+      <Position>2</Position>
+      <Comment>должен быть unique
+</Comment>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="14" name="password">
+      <Position>3</Position>
+      <Comment>будет hash введенного user
+пароля( функция MD5 даст 32 символа)</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="14" name="score">
+      <Position>4</Position>
+      <Comment>счет игрока - его деньги
+может пополнять
+с него списываются ставки
+прибавляется выигрыш</Comment>
+      <DataType>decimal(7,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="14" name="role">
+      <Position>5</Position>
+      <Comment>пользователи могут быть
+только user/admin
+у admin права шире: 
+- устанавливает фикстрованную ставку
+- добавляет еще админов
+- банит игрока</Comment>
+      <DataType>enum(&apos;ADMIN&apos;, &apos;USER&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="14" name="ban">
+      <Position>6</Position>
+      <Comment>если true, то игрок заблокирован и не может играть и писать в чат
+это будет прописано в приложении
+</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="14" name="avatarURL">
+      <Position>7</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="14" name="registrationDate">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="14" name="cardNumber">
+      <Position>9</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <index id="65" parent="14" name="login_UNIQUE">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="66" parent="14" name="PRIMARY">
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="67" parent="14" name="login_UNIQUE">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>login_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="68" parent="15" name="userId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="15" name="firstname">
+      <Position>2</Position>
+      <Comment>для вежливого обращения с сайта</Comment>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="70" parent="15" name="lastname">
+      <Position>3</Position>
+      <Comment>для вежливого обращения с сайта</Comment>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="71" parent="15" name="email">
+      <Position>4</Position>
+      <Comment>если user забудет пароль, 
+то можно будет восстановить его
+поэтому unique</Comment>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="15" name="birthday">
+      <Position>5</Position>
+      <Comment>для дня рождения
+типа бонусы какие-нибудь в этот день</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <index id="73" parent="15" name="email_UNIQUE">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="15" name="PRIMARY">
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="75" parent="15" name="email_UNIQUE">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="76" parent="15" name="fk_user_info_user">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>dicedb</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
