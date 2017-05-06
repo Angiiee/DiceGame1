@@ -6,6 +6,7 @@ import by.training.dao.GameDAO;
 import by.training.entity.game.GameAccount;
 import by.training.exception.CommandException;
 import by.training.exception.DAOException;
+import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
  * Created by angelina on 25.04.2017.
  */
 public class ShowPossibleGameLogic {
+    public static final Logger LOGGER = Logger.getLogger(ShowPossibleGameLogic.class);
+
     public static ArrayList<GameAccount> show(int userId) throws CommandException {
         ProxyConnection connection = ConnectionPool.getConnection();
         try {
@@ -26,7 +29,7 @@ public class ShowPossibleGameLogic {
             try {
                 connection.rollback();
             } catch (SQLException ex) {
-                //log
+                LOGGER.error(ex.getMessage());
             }
         } finally {
             try {

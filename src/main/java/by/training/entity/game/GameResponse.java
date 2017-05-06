@@ -94,7 +94,7 @@ public class GameResponse extends Entity{
 
     @Override
     public String toString() {
-        return "GameResponse{" +
+        return "{" +
                 "maxScore=" + maxScore +
                 ", consignment=" + consignment +
                 ", gameId=" + gameId +

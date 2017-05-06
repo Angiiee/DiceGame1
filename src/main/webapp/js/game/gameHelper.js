@@ -31,11 +31,16 @@ function sendAjax() {
 
         success: function (data) {
             console.log(data);
+            // var gameResponse = new Object();
+            // var obj = JSON.parse(data);
+            
+            var userConsignment = data.consignment;
+            console.log("mess "+ userConsignment.length +"     "+ userConsignment[0].length);
             // $("tr:has(td)").remove();
 
             // $.each(data, function (gameResponse) {
                 // $("#resultString").append(gameResponse.userMaxScore);
-                var gameResponse = data;
+                // var gameResponse = data;
             //
             //     var td_categories = $("<td/>");
             //     $.each(article.categories, function (i, tag) {
@@ -97,7 +102,6 @@ function getPossibleGames() {
             });
 
             $('.possibleGame tbody').append(trHTML);
-            // console.log($('input[name=chooseGameOptionRadio]:checked', '.possibleGame').val());
 
         },
         error:function(status) {

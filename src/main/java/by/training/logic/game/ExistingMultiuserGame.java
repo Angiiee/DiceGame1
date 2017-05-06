@@ -1,6 +1,5 @@
 package by.training.logic.game;
 
-import by.training.action.CountMaxScore;
 import by.training.action.GameMechanics;
 import by.training.connection.ConnectionPool;
 import by.training.connection.ProxyConnection;
@@ -17,9 +16,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.SQLException;
 
-/**
- * Created by angelina on 22.04.2017.
- */
 public class ExistingMultiuserGame {
     private static final int PLAYER_NUMBER = 2;
 
@@ -28,7 +24,7 @@ public class ExistingMultiuserGame {
         try {
             GameResponse gameResponse = new GameResponse();
             gameResponse.setConsignment(GameMechanics.findAllConsignment());
-            gameResponse.setMaxScore(CountMaxScore.countScore(gameResponse.getConsignment()));
+            gameResponse.setMaxScore(12);//CountMaxScore.countScore(gameResponse.getConsignment()));
             gameResponse.setGameId(gameRequest.getGameId());
 
             connection.setAutoCommit(false);
@@ -54,24 +50,29 @@ public class ExistingMultiuserGame {
                 //второй выиграл
                 gameAccount.setWinner(true);
                 gameDAO.updateGame(game.getGameId(), gameResponse.getMaxScore(), true);
-                gameDAO.updateScore(gameRequest.getUserId(), balance.add(gameAccount.getRate()));
+                gameDAO.updateScore(gameRequest.getUserId(), gameAccount.getRate());
                 gameDAO.addPlayer(gameAccount);
                 //оповестить первого
             } else {
                 if (gameResponse.getMaxScore() == game.getMaxScore()) {
                     //ничья
                     gameAccount.setWinner(true);
-//                    BigDecimal competitorBalance = gameDAO.checkBalance(competitorAccount.getUserId());
                     gameDAO.updateScore(competitorAccount.getUserId(), gameAccount.getRate());
-//                    gameDAO.markWinner();
-                }
-                //второй проиграл
-//                finalMaxScore = game.getMaxScore();
 
+                } else {
+                    //второй проиграл
+//                finalMaxScore = game.getMaxScore();
+                    gameDAO.updateScore(gameRequest.getUserId(), gameAccount.getRate().negate());
+                    gameDAO.updateScore(competitorAccount.getUserId(), game.getBank());
+                }
+                gameDAO.updateGame(game.getGameId(), competitorAccount.getUserScore(), true);
+                gameDAO.addPlayer(gameAccount);
             }
 
 
 //            gameDAO.updateGame(game.getGameId(), finalMaxScore, true);
+
+
             gameDAO.markWinner(game.getGameId());
 
 

@@ -39,7 +39,7 @@ public class GameDAO extends AbstractGameDAO implements EntityDAO {
             "SELECT score FROM user WHERE userId = ?";
     private static final String SQL_SELECT_GAME_BY_ID =
             "SELECT * FROM game WHERE gameId = ?";
-    private static final String SQL_SELECT_USER_BY_ID =
+    private static final String SQL_SELECT_USER_BY_GAME_ID =
             "SELECT * FROM game_m2m_user WHERE gameId = ?";
     private static final String SQL_SELECT_GAME_BY_COMPLETE =
             "SELECT gameId, login, rate FROM (game_m2m_user JOIN user ON game_m2m_user.userId = user.userId) WHERE game_m2m_user.userId <> ? AND gameId IN (SELECT gameId FROM game WHERE complete = FALSE)";
@@ -135,12 +135,24 @@ public class GameDAO extends AbstractGameDAO implements EntityDAO {
         } catch (SQLException e) {
             LOGGER.error("SQL exception - request or table failed: " + e);
         }
-        throw new DAOException("Can't check balance: no user registered");
+        throw new DAOException("Can't find game");
     }
 
     @Override
     public GameAccount findPlayer(int gameId) throws DAOException {
-        return null;
+        try (PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_GAME_ID)) {
+            statement.setInt(1, gameId);
+            ResultSet resSet = statement.executeQuery();
+            if (resSet.next()) {
+                GameAccount gameAccount = new GameAccount();
+                gameAccount.setUserId(resSet.getInt(PARAM_NAME_USER_ID));
+                gameAccount.setUserScore(resSet.getInt(PARAM_NAME_USER_SCORE));
+                return gameAccount;
+            }
+        } catch (SQLException e) {
+            LOGGER.error("SQL exception - request or table failed: " + e);
+        }
+        throw new DAOException("Can't find user.");
     }
 
     @Override
