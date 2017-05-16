@@ -59,3 +59,44 @@
 2017-05-05 19:31:27 [ INFO] - [SignInCommand] - correct sign in params
 2017-05-06 08:06:11 [ INFO] - [ActionFactory] - commandsignin
 2017-05-06 08:06:15 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-06 19:38:27 [ INFO] - [ActionFactory] - commandsignin
+2017-05-06 19:38:39 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-06 19:42:08 [ INFO] - [ActionFactory] - commandsignin
+2017-05-06 19:42:09 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-06 19:46:31 [ INFO] - [ActionFactory] - commandsignin
+2017-05-06 19:46:46 [ INFO] - [ActionFactory] - commandsignin
+2017-05-06 19:46:54 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 19:24:19 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 19:24:36 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 19:34:03 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 19:34:03 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 19:40:53 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 19:40:53 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 19:43:53 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 19:43:53 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 19:48:15 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 19:48:15 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 20:00:36 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 20:00:45 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-10 20:03:04 [ INFO] - [ActionFactory] - commandsignin
+2017-05-10 20:03:08 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 08:11:07 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 08:11:16 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 08:17:20 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 08:17:21 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 09:01:11 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 09:01:12 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 09:03:09 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 09:03:10 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 09:05:53 [ INFO] - [ActionFactory] - commandshowinbox
+2017-05-11 09:05:59 [ INFO] - [ActionFactory] - commandshowsentmail
+2017-05-11 16:22:33 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 16:22:34 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 16:29:37 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 16:29:37 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 16:37:28 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 16:37:28 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 17:29:30 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 17:29:31 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-11 17:32:43 [ INFO] - [ActionFactory] - commandsignin
+2017-05-11 17:32:43 [ INFO] - [SignInCommand] - correct sign in params

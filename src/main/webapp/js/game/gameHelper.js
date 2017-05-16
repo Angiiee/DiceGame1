@@ -8,14 +8,24 @@ $(document).ready(function () {
         $('#multiuserTypeOption').removeClass('active');
     });
 
+    $('#gameAction').css("display","none");
 
+    doRoll = function (throwArray) {
+        var i,
+            faceValue,
+            output = '';
+        for (i = 0; i < throwArray.length; i++) {
+            faceValue = throwArray[i] - 1;
+            output += "&#x268" + faceValue + "; ";
+        }
+        $('#dice').html(output);
+        //alert(throwArray.length);
+    }
 
 });
 
 function sendAjax() {
-
-    // get inputs
-    var gameRequest = new Object();
+    var gameRequest = {};
     gameRequest.requestType = "GAME";
     gameRequest.gameType = $('input[name=gameTypeRadio]:checked', '#selectGameType').val();
     gameRequest.gameId = $('input[name=chooseGameOptionRadio]:checked', '.possibleGame').val();
@@ -31,49 +41,29 @@ function sendAjax() {
 
         success: function (data) {
             console.log(data);
-            // var gameResponse = new Object();
-            // var obj = JSON.parse(data);
-            
-            var userConsignment = data.consignment;
-            console.log("mess "+ userConsignment.length +"     "+ userConsignment[0].length);
-            // $("tr:has(td)").remove();
-
-            // $.each(data, function (gameResponse) {
-                // $("#resultString").append(gameResponse.userMaxScore);
-                // var gameResponse = data;
-            //
-            //     var td_categories = $("<td/>");
-            //     $.each(article.categories, function (i, tag) {
-            //         var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
-            //         span.text(tag);
-            //         td_categories.append(span);
-            //     });
-            //
-            //     var td_tags = $("<td/>");
-            //     $.each(article.tags, function (i, tag) {
-            //         var span = $("<span class='label' style='margin:4px;padding:4px' />");
-            //         span.text(tag);
-            //         td_tags.append(span);
-            //     });
-            //
-            //     $("#added-articles").append($('<tr/>')
-            //         .append($('<td/>').html("<a href='"+article.url+"'>"+article.title+"</a>"))
-            //         .append(td_categories)
-            //         .append(td_tags)
-            //     );
-            //
-            // });
-
-            // $("#resultString").val(data);
-            // alert("data" + data.toString());
+            userConsignment = data.consignment;
+            var k = 0;
+            $('#dice').css("font-size","150px");
+            $('#gameAction').css("display","block");
+            $(document).on('click', '#rollButton', function () {
+                if (k < userConsignment.length) {
+                    doRoll(userConsignment[k]);
+                    k++;
+                }
+                if (k == userConsignment.length) {
+                    $('#gameAction').css("display", "none");
+                    $('#gameResult').html("<label><fmt:message key='win'/></label>");
+                }
+            });
 
         },
-        error:function(status) {
+        error: function (status) {
             // var code = status;
             // console.log("error status: " + code.toString());
         }
     });
 }
+
 
 function getPossibleGames() {
 
@@ -92,7 +82,7 @@ function getPossibleGames() {
             $('#tbodyid').empty();
             console.log(data);
             var trHTML = '';
-            $.each(data, function (key,item) {
+            $.each(data, function (key, item) {
                 trHTML +=
                     '<tr><td>' + item.gameId +
                     '</td><td>' + item.userLogin +
@@ -104,7 +94,7 @@ function getPossibleGames() {
             $('.possibleGame tbody').append(trHTML);
 
         },
-        error:function(status) {
+        error: function (status) {
             // var code = status;
             // console.log("error status: " + code.toString());
         }
