@@ -31,7 +31,7 @@ function sendAjax() {
     gameRequest.gameId = $('input[name=chooseGameOptionRadio]:checked', '.possibleGame').val();
     gameRequest.multiuserGameType = $('input[name=multiuserGameOptionRadio]:checked', '#multiuserTypeOption').val();
     gameRequest.rate = $('#inputRate').val();
-
+    console.log("OK");
 
     $.ajax({
         url: "/game",
