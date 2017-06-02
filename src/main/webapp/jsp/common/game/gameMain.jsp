@@ -16,29 +16,35 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     </head>
 <body>
+<h1>Lucky Dice</h1>
 <div class="gameMenu">
     <div id="gameRequest">
+        <div class="hideBlock form-group form-inline" id="rateOption">
+            <label for="inputRate" class="control-label">Rate: </label>
+            <input class="form-control" type="number" id="inputRate" min="0" step="0.01" value="0.00">
+        </div>
+
         <div id="selectGameType">
-            <label for="serverType">Server</label>
-            <input type="radio" name="gameTypeRadio" value="SERVER" id="serverType" checked>
-            <label for="multiuserType">Multiuser</label>
+            <label class="btn btn-primary" for="serverType">Server</label>
+            <input type="radio" name="gameTypeRadio" value="SERVER" id="serverType"  checked>
+            <label  class="btn btn-primary" for="multiuserType">Multiuser</label>
             <input type="radio" name="gameTypeRadio" value="MULTIUSER" id="multiuserType">
         </div>
-        <label for="inputRate">Rate:</label>
-        <input type="number" id="inputRate" min="0" step="0.01" value="0.00">
-        <button class="btn btn-primary" type="button" onclick="sendAjax()">Play!</button>
+
         <div id="multiuserTypeOption" class="hideBlock">
-            <label for="newMultiuserGame">New Game</label>
+            <label class="btn btn-primary" for="newMultiuserGame">New Game</label>
             <input type="radio" name="multiuserGameOptionRadio" value="NEW" id="newMultiuserGame">
-            <label for="existingMultiuserGame">Existing Game</label>
+            <label class="btn btn-primary" for="existingMultiuserGame">Existing Game</label>
             <input type="radio" name="multiuserGameOptionRadio" onclick="getPossibleGames()" value="EXISTING" id="existingMultiuserGame">
         </div>
+        <button class="btn btn-lg btn-danger" id="playButton" type="button" onclick="sendAjax()">Play!</button>
+        <!-- <label class="btn btn-lg btn-danger" for="playButton">Play Label</label> -->
     </div>
 
     <a href="${pageContext.servletContext.contextPath}/jsp/common/main.jsp">Home</a>
 
-    <div class="container">
-        <h1>Open games</h1>
+    <div class="container hideBlock">
+        <h2>Open games</h2>
         <table id="table1" class="possibleGame table table-bordered table-striped">
             <thead>
             <tr>
@@ -55,9 +61,8 @@
 
 </div>
 
-
 <div id="gameAction">
-    <input id="rollButton" type="button" value="Roll">
+    <input id="rollButton" class="btn btn-" type="button" value="Roll">
     <div id="dice"></div>
 </div>
 
