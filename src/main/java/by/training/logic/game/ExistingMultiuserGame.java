@@ -1,5 +1,6 @@
 package by.training.logic.game;
 
+import by.training.action.CountMaxScore;
 import by.training.action.GameMechanics;
 import by.training.connection.ConnectionPool;
 import by.training.connection.ProxyConnection;
@@ -24,7 +25,7 @@ public class ExistingMultiuserGame {
         try {
             GameResponse gameResponse = new GameResponse();
             gameResponse.setConsignment(GameMechanics.findAllConsignment());
-            gameResponse.setMaxScore(12);//CountMaxScore.countScore(gameResponse.getConsignment()));
+            gameResponse.setMaxScore(CountMaxScore.countScore(gameResponse.getConsignment()));
             gameResponse.setGameId(gameRequest.getGameId());
 
             connection.setAutoCommit(false);

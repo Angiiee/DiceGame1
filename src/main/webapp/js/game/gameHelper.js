@@ -19,7 +19,6 @@ $(document).ready(function () {
             output += "&#x268" + faceValue + "; ";
         }
         $('#dice').html(output);
-        consoke.log("check");
         //alert(throwArray.length);
     }
 

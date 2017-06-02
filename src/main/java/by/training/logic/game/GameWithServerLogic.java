@@ -1,5 +1,6 @@
 package by.training.logic.game;
 
+import by.training.action.CountMaxScore;
 import by.training.action.GameMechanics;
 import by.training.connection.ConnectionPool;
 import by.training.connection.ProxyConnection;
@@ -29,8 +30,8 @@ public class GameWithServerLogic {
             GameServerResponse gameServerResponse = new GameServerResponse();
             gameServerResponse.setServerConsignment(GameMechanics.findAllConsignment());
             gameServerResponse.setConsignment(GameMechanics.findAllConsignment());
-            gameServerResponse.setServerMaxScore(12);//CountMaxScore.countScore(gameServerResponse.getServerConsignment()));
-            gameServerResponse.setMaxScore(12);//CountMaxScore.countScore(gameServerResponse.getConsignment()));
+            gameServerResponse.setServerMaxScore(CountMaxScore.countScore(gameServerResponse.getServerConsignment()));
+            gameServerResponse.setMaxScore(CountMaxScore.countScore(gameServerResponse.getConsignment()));
             connection.setAutoCommit(false);
             GameDAO gameDAO = new GameDAO(connection);
             BigDecimal balance = gameDAO.checkBalance(gameRequest.getUserId());

@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav">
                 <li class="menuItem"><a href="${pageContext.servletContext.contextPath}/jsp/common/main.jsp">Home</a></li>
                 <li class="menuItem"><a href=""><label for="showAccount"><span class="glyphicon glyphicon-piggy-bank"></span> ${sessionScope.userScore}</label></a></li>
-                <li class="menuItem"><a href="#">Settings</a></li>
+                <li class="menuItem"><a href="${pageContext.servletContext.contextPath}/jsp/admin/creditCardSetting.jsp">Settings</a></li>
                 <li class="menuItem"><a href="#">Complaints</a></li>
                 <li class="menuItem"><a href="${pageContext.servletContext.contextPath}/jsp/common/game/gameMain.jsp">Game</a></li>
                 <li class="menuItem"><a href="${pageContext.servletContext.contextPath}/jsp/common/mail/newMail.jsp">Mail</a></li>

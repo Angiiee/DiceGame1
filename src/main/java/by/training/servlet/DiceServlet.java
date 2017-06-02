@@ -2,6 +2,7 @@ package by.training.servlet;
 
 import by.training.command.ActionCommand;
 import by.training.command.ActionFactory;
+import by.training.entity.response.ResponseInfo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,12 +30,20 @@ public class DiceServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String page;
         ActionFactory client = new ActionFactory();
         request.setCharacterEncoding("UTF-8");
         ActionCommand command = client.defineCommand(request);
-        page = command.execute(request);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-        dispatcher.forward(request, response);
+        ResponseInfo responseInfo = command.execute(request);
+        switch (responseInfo.getType()) {
+            case FORWARD: {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(responseInfo.getNextPage());
+                dispatcher.forward(request, response);
+                break;
+            }
+            case REDIRECT: {
+                response.sendRedirect(responseInfo.getNextPage());
+                break;
+            }
+        }
     }
 }

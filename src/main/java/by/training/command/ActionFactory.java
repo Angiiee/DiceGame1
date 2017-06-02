@@ -13,7 +13,7 @@ public class ActionFactory {
     private static final String PARAM_COMMAND = "command";
 
     public ActionCommand defineCommand(HttpServletRequest request) {
-        String action = null;
+        String action;
         action = request.getParameter(PARAM_COMMAND);
         LOGGER.info(PARAM_COMMAND + action);
         CommandType currentEnum = CommandType.valueOf(action.toUpperCase());

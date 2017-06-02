@@ -100,3 +100,44 @@
 2017-05-11 17:29:31 [ INFO] - [SignInCommand] - correct sign in params
 2017-05-11 17:32:43 [ INFO] - [ActionFactory] - commandsignin
 2017-05-11 17:32:43 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-20 18:05:11 [ INFO] - [ActionFactory] - commandlocale
+2017-05-20 18:06:19 [ INFO] - [ActionFactory] - commandsignin
+2017-05-20 18:06:26 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-20 18:10:35 [ INFO] - [ActionFactory] - commandsignin
+2017-05-20 18:10:35 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-20 18:14:26 [ INFO] - [ActionFactory] - commandsignin
+2017-05-20 18:14:27 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-20 18:15:15 [ INFO] - [ActionFactory] - commandload
+2017-05-20 18:16:58 [ INFO] - [ActionFactory] - commandsignin
+2017-05-20 18:16:58 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-22 12:48:19 [ INFO] - [ActionFactory] - commandsignin
+2017-05-22 12:48:21 [ INFO] - [SignInCommand] - correct sign in params
+2017-05-22 12:48:45 [ INFO] - [ActionFactory] - commandshowinbox
+2017-05-22 12:48:54 [ INFO] - [ActionFactory] - commandshowcreditaccount
+2017-06-01 17:28:44 [ INFO] - [ActionFactory] - commandsignin
+2017-06-01 17:28:45 [ INFO] - [SignInCommand] - correct sign in params
+2017-06-01 17:28:53 [ INFO] - [ActionFactory] - commandshowcreditaccount
+2017-06-01 17:28:54 [ INFO] - [ActionFactory] - commandshowcreditaccount
+2017-06-01 17:29:05 [ INFO] - [ActionFactory] - commandshowprofile
+2017-06-01 17:44:01 [ INFO] - [ActionFactory] - commandload
+2017-06-01 17:44:05 [ INFO] - [ActionFactory] - commandshowcreditaccount
+2017-06-01 17:44:12 [ INFO] - [ActionFactory] - commandlogout
+2017-06-01 17:44:31 [ INFO] - [ActionFactory] - commandlogout
+2017-06-01 17:45:07 [ INFO] - [ActionFactory] - commandlogout
+2017-06-01 17:45:25 [ INFO] - [ActionFactory] - commandsignin
+2017-06-01 17:45:25 [ INFO] - [SignInCommand] - correct sign in params
+2017-06-01 17:45:32 [ INFO] - [ActionFactory] - commandshowsentmail
+2017-06-01 19:55:17 [ INFO] - [ActionFactory] - commandsignin
+2017-06-01 19:55:24 [ INFO] - [ActionFactory] - commandshowcreditaccount
+2017-06-01 19:56:13 [ INFO] - [ActionFactory] - commandnewmessage
+2017-06-01 19:57:36 [ INFO] - [ActionFactory] - commandload
+2017-06-01 19:58:59 [ INFO] - [ActionFactory] - commandsignin
+2017-06-01 19:59:24 [ INFO] - [ActionFactory] - commandload
+2017-06-01 19:59:45 [ INFO] - [ActionFactory] - commandload
+2017-06-02 16:54:47 [ INFO] - [ActionFactory] - commandsignin
+2017-06-02 16:56:20 [ INFO] - [ActionFactory] - commandmoneysetting
+2017-06-02 16:57:49 [ INFO] - [ActionFactory] - commandsignin
+2017-06-02 16:58:23 [ INFO] - [ActionFactory] - commandmoneysetting
+2017-06-02 17:02:08 [ INFO] - [ActionFactory] - commandsignin
+2017-06-02 17:23:47 [ INFO] - [ActionFactory] - commandmoneysetting
+2017-06-02 17:24:10 [ INFO] - [ActionFactory] - commandshowcreditaccount

@@ -51,6 +51,11 @@ public enum CommandType {
             this.command = new LocaleCommand();
         }
     },
+    MONEYSETTING{
+        {
+            this.command = new MoneySettingCommand();
+        }
+    },
     NEWMESSAGE{
         {
             this.command = new NewMessageCommand();
