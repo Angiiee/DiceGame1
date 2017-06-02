@@ -1,6 +1,49 @@
+/*@font-face {*/
+    /*font-family: Candy;*/
+    /*src: url(../font/logo/Candy Shop Personal Use.ttf);*/
+/*}*/
+body {
+    /*background: url(moreFon.jpg) no-repeat;*/
+    background-size: contain;
+}
+h1 {
+    font-family: Candy;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}
 .hideBlock{
     display: none;
 }
 .active{
     display: block;
+}
+.gameMenu {
+    text-align: center;
+}
+input[type=radio] {
+    display: none;
+}
+.possibleGame {
+    background-color: rgba(15, 0, 44, 0.1);/*rgba(44, 48, 55, .5);*/
+}
+.btn:toggle {
+    background: #FF4500;
+    font-weight: bold;
+}
+#inputRate {
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+#rateOption label {
+    padding-right: 15px;
+    font-size: 20pt;
+    color: #E74C3C;
+}
+#rateOption input {
+    width: 80px;
+}
+#rateOption, #selectGameType, #multiuserTypeOption {
+    padding: 10px;
 }
